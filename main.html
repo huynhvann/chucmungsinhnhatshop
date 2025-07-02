@@ -1,1 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc mừng sinh nhật em</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffeaf4, #e2f4ff);
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      position: relative;
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.2em;
+      margin-bottom: 10px;
+      animation: fadeInDown 2s ease-out;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 20px;
+      background: #ff85a2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    header button:hover {
+      background: #ff4f7d;
+      transform: scale(1.05);
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeIn 2s ease-in;
+    }
+    h2 {
+      color: #a63475;
+      text-align: center;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      margin: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .gift-box {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .gift {
+      width: 200px;
+      height: 200px;
+      background:url(img/open-gift-unscreen.gif) no-repeat center/contain;
+      margin: auto;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    .birthday-card {
+      width: auto;
+      height: 400px;
+      background:url(img/thiep.gif) no-repeat center/contain;
+      margin: auto;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      
+}
+.birthday-card:hover {
+  transform: scale(1.05);
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.popup-content {
+  background: #fffafc;
+  border-radius: 20px;
+  padding: 30px;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+  font-size: 1.1em;
+  line-height: 1.6;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 4px solid #ff85a2;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.popup-content p {
+  color: #5c2d41;
+  white-space: pre-wrap;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #ff85a2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#typedMessage::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.arrow {
+  width: 400px;
+      height: 00px;
+      background:url(img/mui_ten.gif) no-repeat center/contain;
+      margin: auto;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+}
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+    .cake{
+      width: 400px;
+      height: 400px;
+      background:url(img/cake.gif) no-repeat center/contain;
+      margin: auto;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    .gift.opened {
+      background: none;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 20px;
+      font-style: italic;
+      animation: fadeIn 2s ease-in-out;
+      color: #d6336c;
+      font-weight: bold;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffd8e4;
+      font-size: 0.9em;
+      color: #5c2d41;
+    }
+    .floating-stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .floating-stars span {
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      animation: floatStar linear infinite;
+    }
+    @keyframes floatStar {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+    .heart-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .heart-rain span {
+      position: absolute;
+      display: inline-block;
+      color: #ff5e99;
+      font-size: 1.5rem;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Audio -->
+<audio id="mainAudio" autoplay loop>
+  <source src="img/hpbd.mp3" type="audio/mpeg">
+</audio>
+
+<div class="floating-stars" id="star-container"></div>
+<div class="heart-rain" id="heart-container"></div>
+
+  <div class="floating-stars" id="star-container"></div>
+  <div class="heart-rain" id="heart-container"></div>
+
+  <header>
+    <h1>Chúc mừng sinh nhật💖</h1>
+    <p style="font-family: 'Pacifico', cursive;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    animation: fadeInDown 2s ease-out;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);">Hãy cùng mở ra bất ngờ nho nhỏ nhé 🌙</p>
+    <button onclick="scrollToSection()">Khám phá ngay 🎁</button>
+  </header>
+
+  <section id="main-content">
+    <h2>Lời chúc từ tấm lòng💕</h2>
+    <div class="card-container">
+     
+      <div class="birthday-card" onclick="showPopup()">
+        
+      </div>
+    </div>
+    <!-- <p style="text-align: center; font-size: 1.1em; color: #4b2e39">
+      Chúc em tuổi mới luôn cười thật tươi, sống trọn vẹn với những gì mình yêu và luôn cảm thấy bình yên trong lòng - như chính cách em mang bình
+      yên đến cho <b>người khác</b>.<br>
+      Cảm ơn em vì đã hiện diện và làm thế giới này trở nên dịu dàng hơn.<br>
+      Anh không biết năm nay em sẽ ước điều gì... nhưng nếu được, anh chỉ mong mọi ước mơ của em đều trở thành hiện thực, mọi điều tốt đẹp sẽ đến bên em hôm nay và mãi về sau..
+      <br>💫Chúc em có một ngày sinh nhật thật vui vẻ, ấm áp và trọn vẹn yêu thương. 💗
+    </p> -->
+
+    <h2>Nghe nhạc nha 🎼 </h2>
+    <div><p id="typingHint" style="text-align:center; font-style:italic; color:#d6336c; font-weight:bold;"></p></div>
+    <div class="gallery">
+      <img src="img/hinh1.jpg" alt="Ảnh 1"onclick="playSong(4)">
+      <img src="img/hinh2.jpg" alt="Ảnh 2"onclick="playSong(0)">
+      <img src="img/hinh3.jpg" alt="Ảnh 3"onclick="playSong(6)">
+      <img src="img/hinh4.jpg" alt="Ảnh 4"onclick="playSong(1)">
+      <img src="img/hinh5.jpg" alt="Ảnh 5"onclick="playSong(2)">
+      <img src="img/hinh6.jpg" alt="Ảnh 6"onclick="playSong(3)">
+      <img src="img/hinh7.jpg" alt="Ảnh 7"onclick="playSong(5)">
+    </div>
+
+    <h2>Hộp quà bí ẩn 🎁</h2>
+    <div class="gift-box">
+      <div class="gift" onclick="showMessage()"></div>
+      <div class="hidden-message" id="hiddenMessage">
+      <div class="cake" id="hiddenMessage"></div>
+        🌟 "Mỗi người sinh ra đều là một vì sao – và em là ngôi sao sáng nhất hôm nay. Chúc em tuổi mới rực rỡ và ngập tràn hạnh phúc!"
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Tạo bởi một người giấu tên =)) 💕 —  15/7/2025
+  </footer>
+<!-- Popup thiệp -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <p id="typedMessage"></p>
+  </div>
+</div>
+  <script>
+    function scrollToSection() {
+      document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+    }
+    function showMessage() {
+      const msg = document.getElementById('hiddenMessage');
+      msg.style.display = 'block';
+    }
+
+    const starContainer = document.getElementById('star-container');
+    for (let i = 0; i < 50; i++) {
+      let star = document.createElement('span');
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      starContainer.appendChild(star);
+    }
+
+    const heartContainer = document.getElementById('heart-container');
+    const hearts = ['🎂 ','🎁','🎉','🎈','🎊'];/**['💖','💗','💘','💕','💞'];**/
+    for (let i = 0; i < 20; i++) {
+      const span = document.createElement('span');
+      span.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+      span.style.left = Math.random() * 100 + '%';
+      span.style.animationDuration = (Math.random() * 5 + 3) + 's';
+      span.style.top = '-' + Math.random() * 20 + 'px';
+      heartContainer.appendChild(span);
+    }
+    const audio = document.getElementById('mainAudio');
+    const songs = [
+      "img/Ed Sheeran - Perfect (Official Music Video).mp3",
+      "img/Aakash Gandhi  The Beauty of Love.mp3",
+      "img/Bruno Mars - Just The Way You Are (Official Music Video).mp3",
+      "img/Christina Perri - A Thousand Years [Official Music Video].mp3",
+      "img/Vietsub - HUSH OF SUNSET - 10 CM   __ Our Unwritten Seoul OST Part 02_  Một Seoul Chưa Biết Đến.mp3",
+      "img/宇多田ヒカル - First Love.mp3",
+      "img/Novelbright - 愛結び [Official Music Video] - Novelbright.mp3"
+    ];
+
+    function playSong(index) {
+      audio.src = songs[index];
+      audio.play();
+    }
+ let i = 0;
+let typingTimer = null;
+
+const message = `Chúc mừng sinh nhật em!
+
+Chúc em tuổi mới luôn cười thật tươi, sống trọn vẹn với những gì mình yêu và luôn cảm thấy bình yên trong lòng - như chính cách em mang bình yên đến cho người khác.
+Cảm ơn em vì đã hiện diện và làm thế giới này trở nên dịu dàng hơn.
+Anh không biết năm nay em sẽ ước điều gì... nhưng nếu được, anh chỉ mong mọi ước mơ của em đều trở thành hiện thực, mọi điều tốt đẹp sẽ đến bên em hôm nay và mãi về sau.
+
+💫 Chúc em một sinh nhật ngập tràn niềm vui, yêu thương và thật nhiều may mắn!`;
+
+function typeMessage() {
+  const typedMessage = document.getElementById('typedMessage');
+  if (i < message.length) {
+    typedMessage.innerHTML += message.charAt(i);
+    i++;
+    typingTimer = setTimeout(typeMessage, 100);
+  }
+}
+
+function showPopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'flex';
+  popup.style.animation = 'fadeIn 1s ease';
+
+  // Reset lại mọi thứ trước khi đánh lại
+  clearTimeout(typingTimer);
+  i = 0;
+  document.getElementById('typedMessage').innerHTML = "";
+  typeMessage();
+}
+
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'none';
+
+  clearTimeout(typingTimer);  // ngắt đánh máy
+  i = 0;                      // reset chỉ số
+  document.getElementById('typedMessage').innerHTML = "";
+}
+
+
+const hintText = "👉 Em click vào hình để nghe nha =)))";
+let hintElement = document.getElementById("typingHint");
+
+function loopTyping() {
+  if (hintIndex <= hintText.length) {
+    hintElement.innerHTML = hintText.slice(0, hintIndex);
+    hintIndex++;
+    setTimeout(loopTyping, 50);
+  } else {
+    hintIndex = 0;
+    setTimeout(loopTyping, 800); // nghỉ 0.8 giây trước khi lặp
+  }
+}
+loopTyping();
+
+  </script>
+</body>
+</html>
