@@ -80,7 +80,7 @@
     .gift {
       width: 200px;
       height: 200px;
-      background:url(open-gift-unscreen.gif) no-repeat center/contain;
+      background:url(/img/open-gift-unscreen.gif) no-repeat center/contain;
       margin: auto;
       cursor: pointer;
       animation: bounce 2s infinite;
@@ -282,7 +282,7 @@
   <section id="main-content">
     <h2>Lời chúc từ tấm lòng💕</h2>
     <div class="card-container">
-      <div class="arrow" ></div>
+     
       <div class="birthday-card" onclick="showPopup()">
         
       </div>
@@ -370,18 +370,9 @@
       audio.src = songs[index];
       audio.play();
     }
-    function showPopup() {
-  const popup = document.getElementById('popup');
-  popup.style.display = 'flex';
-  popup.style.animation = 'fadeIn 1s ease';
-  typeMessage();
-}
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-  document.getElementById('typedMessage').innerHTML = "";
-  clearTimeout(typingTimer); // ngắt ngay lập tức
-  i = 0; // reset chỉ số
-}
+ let i = 0;
+let typingTimer = null;
+
 const message = `Chúc mừng sinh nhật em!
 
 Chúc em tuổi mới luôn cười thật tươi, sống trọn vẹn với những gì mình yêu và luôn cảm thấy bình yên trong lòng - như chính cách em mang bình yên đến cho người khác.
@@ -391,22 +382,36 @@ Anh không biết năm nay em sẽ ước điều gì... nhưng nếu được, 
 💫 Chúc em một sinh nhật ngập tràn niềm vui, yêu thương và thật nhiều may mắn!`;
 
 function typeMessage() {
-  const typed = document.getElementById('typedMessage');
-  typed.innerHTML = "";
-  let i = 0;
-let typingTimer;
-
-function typing() {
+  const typedMessage = document.getElementById('typedMessage');
   if (i < message.length) {
-    typed.innerHTML += message.charAt(i);
+    typedMessage.innerHTML += message.charAt(i);
     i++;
-    typingTimer = setTimeout(typing, 80);
+    typingTimer = setTimeout(typeMessage, 100);
   }
 }
 
-typing();
+function showPopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'flex';
+  popup.style.animation = 'fadeIn 1s ease';
 
+  // Reset lại mọi thứ trước khi đánh lại
+  clearTimeout(typingTimer);
+  i = 0;
+  document.getElementById('typedMessage').innerHTML = "";
+  typeMessage();
 }
+
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'none';
+
+  clearTimeout(typingTimer);  // ngắt đánh máy
+  i = 0;                      // reset chỉ số
+  document.getElementById('typedMessage').innerHTML = "";
+}
+
+
 const hintText = "👉 Em click vào hình để nghe nha =)))";
 let hintIndex = 0;
 let hintElement = document.getElementById("typingHint");
