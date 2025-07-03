@@ -258,7 +258,7 @@
 </head>
 <body>
 <!-- Audio -->
-<audio id="mainAudio" autoplay loop>
+<audio id="mainAudio" autoplay loop muted>
   <source src="img/hpbd.mp3" type="audio/mpeg">
 </audio>
 
@@ -365,22 +365,20 @@
       "img/Novelbright - 愛結び [Official Music Video] - Novelbright.mp3"
     ];
 
-function playSong(index) {
-    if (songList[index]) {
-      audio.src = songList[index];
+    function playSong(index) {
+      audio.src = songs[index];
       audio.play();
     }
-  }
  let i = 0;
 let typingTimer = null;
 
-const message = `Chúc mừng sinh nhật em!
+const message = Chúc mừng sinh nhật em!
 
 Chúc em tuổi mới luôn cười thật tươi, sống trọn vẹn với những gì mình yêu và luôn cảm thấy bình yên trong lòng - như chính cách em mang bình yên đến cho người khác.
 Cảm ơn em vì đã hiện diện và làm thế giới này trở nên dịu dàng hơn.
 Anh không biết năm nay em sẽ ước điều gì... nhưng nếu được, anh chỉ mong mọi ước mơ của em đều trở thành hiện thực, mọi điều tốt đẹp sẽ đến bên em hôm nay và mãi về sau.
 
-💫 Chúc em một sinh nhật ngập tràn niềm vui, yêu thương và thật nhiều may mắn!`;
+💫 Chúc em một sinh nhật ngập tràn niềm vui, yêu thương và thật nhiều may mắn!;
 
 function typeMessage() {
   const typedMessage = document.getElementById('typedMessage');
