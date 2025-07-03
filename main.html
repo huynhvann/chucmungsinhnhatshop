@@ -365,10 +365,12 @@
       "img/Novelbright - 愛結び [Official Music Video] - Novelbright.mp3"
     ];
 
-    function playSong(index) {
-      audio.src = songs[index];
+function playSong(index) {
+    if (songList[index]) {
+      audio.src = songList[index];
       audio.play();
     }
+  }
  let i = 0;
 let typingTimer = null;
 
