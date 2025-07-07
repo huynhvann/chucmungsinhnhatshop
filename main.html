@@ -435,7 +435,20 @@ function loopTyping() {
   }
 }
 loopTyping();
+function showRatingMessage() {
+    const value = document.getElementById("rating-select").value;
 
+    const messages = {
+      "Tuyệt": "Tuyệt vời ông mặt trời ☀️",
+      "Rất đẹp": "Rất đẹp cảm ơn anh, eo anh =))))",
+      "Đủ wow": "Đủ wow rồi đó, em ngạc nhiên chưa? 😎",
+      "Không điểm chê": "Không điểm chê thật hở 😏 anh xúc động quá!"
+    };
+
+    if (value) {
+      alert(messages[value]);
+    }
+  }
   </script>
 </body>
 </html>
