@@ -455,15 +455,15 @@ function showRatingMessage() {
     const value = document.getElementById("rating-select").value;
 
     const messages = {
-      "Tuyệt": "✨ Tuyệt vời ông mặt trời ☀️ cảm ơn vì đã ghé chơi nhen!",
+      "Tuyệt": "🎀 Tuyệt tới mức em không biết phải nói gì nữa, chỉ muốn ôm! 🥺",
       "Rất đẹp": "🌷 Rất đẹp cảm ơn anh, eo anh =))))",
-      "Đủ wow": "🌟 Đủ wow rồi đó, em ngạc nhiên chưa? 😎",
+      "Đủ wow": "🌟 Đủ wow rồi đó, cảm ơn anh nhèo =))))",
       "Không điểm chê": "💎 Không điểm chê thật hở 😏 anh xúc động quá!"
     };
 
     if (value) {
       Swal.fire({
-        title: '💖 Cảm ơn bạn 💖',
+        title: '💖 Cảm ơn em đã chọn đáp án 💖',
         text: messages[value],
         icon: 'success',
         confirmButtonText: 'Hihi biết rùi nè 😊',
