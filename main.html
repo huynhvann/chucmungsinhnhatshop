@@ -399,7 +399,7 @@ let typingTimer = null;
 
 const message = `Chúc mừng sinh nhật em!
 
-Chúc em tuổi mới luôn cười thật tươi, sống trọn vẹn với những gì mình yêu và luôn cảm thấy bình yên trong lòng - như chính cách em mang bình yên đến cho người khác.
+Chúc em tuổi mới luôn cười thật tươi, sống trọn vẹn với những gì mình yêu và luôn cảm thấy bình yên trong lòng - như chính cách em mang bình yên đến cho anh =))).
 Cảm ơn em vì đã hiện diện và làm thế giới này trở nên dịu dàng hơn.
 Anh không biết năm nay em sẽ ước điều gì... nhưng nếu được, anh chỉ mong mọi ước mơ của em đều trở thành hiện thực, mọi điều tốt đẹp sẽ đến bên em hôm nay và mãi về sau.
 
@@ -430,8 +430,8 @@ function closePopup() {
   const popup = document.getElementById('popup');
   popup.style.display = 'none';
 
-  clearTimeout(typingTimer);  // ngắt đánh máy
-  i = 0;                      // reset chỉ số
+  clearTimeout(typingTimer);  
+  i = 0;                      
   document.getElementById('typedMessage').innerHTML = "";
 }
 
@@ -456,14 +456,14 @@ function showRatingMessage() {
 
     const messages = {
       "Tuyệt": "🎀 Tuyệt tới mức em không biết phải nói gì nữa, chỉ muốn ôm! 🥺",
-      "Rất đẹp": "🌷 Rất đẹp cảm ơn anh, eo anh =))))",
+      "Rất đẹp": "🌷 Rất đẹp cảm ơn anh =)))",
       "Đủ wow": "🌟 Đủ wow rồi đó, cảm ơn anh nhèo =))))",
       "Không điểm chê": "💎 Không điểm chê thật hở 😏 anh xúc động quá!"
     };
 
     if (value) {
       Swal.fire({
-        title: '💖 Cảm ơn em đã chọn đáp án 💖',
+        title: '💖 Cảm ơn em đã chọn💖',
         text: messages[value],
         icon: 'success',
         confirmButtonText: 'Hihi biết rùi nè 😊',
